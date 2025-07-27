@@ -1,0 +1,50 @@
+@model List<dotNetDashboard.Models.User>
+
+<div class="row">
+    <button class="btn btn-primary">⬅ Kembali</button>
+    <h3>Daftar User</h3>
+</div>
+<a href="/User/Add" class="btn btn-primary mb-3">+ Tambah User</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>UserId</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Foto</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>
+                    <img src="~/images/profile.png" alt="Foto" width="50" />
+                </td>
+                <td>@user.Role</td>
+                <td>
+                    @if (user.Status)
+                    {
+                        <span class="text-success">Aktif</span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">Non-Aktif</span>
+                    }
+                </td>
+                <td>
+                    <a href="/User/Edit/@user.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a href="/User/Delete/@user.Id" class="btn btn-sm btn-danger"
+                        onclick="return confirm('Yakin hapus?')">Hapus</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Home";
+    var username = ViewBag.Username as string ?? "User";
+    var role = ViewBag.Role as string ?? "Standard";
+    var email = ViewBag.Email as string ?? "user@example.com";
+}
+
+<div class="container mt-4">
+
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4>Dashboard</h4>
+
+    </div>
+
+
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Beranda</a>
+        </li>
+        @if (ViewBag.Role == "Admin")
+        {
+            <li class="nav-item">
+                <a class="nav-link" href="/User">Pengaturan</a>
+            </li>
+        }
+
+    </ul>
+
+
+    <div class="card p-4 shadow-sm">
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <img src="~/images/1.png" class="img-thumbnail mb-2" style="width: 150px;" alt="Profile" />
+            </div>
+            <div class="col-md-9">
+                <p><strong>User Name Windows:</strong> @username</p>
+                <p><strong>Nama:</strong> @username</p>
+                <p><strong>Email:</strong> @email</p>
+                <p><strong>Level:</strong> @role</p>
+            </div>
+        </div>
+    </div>
+
+</div>

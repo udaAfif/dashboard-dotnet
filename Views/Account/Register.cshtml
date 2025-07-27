@@ -1,0 +1,42 @@
+@{
+    ViewBag.title = "Register";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow rounded">
+                <div class="card-body text-center">
+                    <!-- Logo -->
+                    <img src="~/images/Bank_Mayapada.png" alt="Bank Logo" style="height: 40px; margin-bottom: 10px;" />
+                    <h5 style="font-family: Arial, Helvetica, sans-serif;">Register</h5>
+                    <!-- Form -->
+                    <form method="post">
+                        <div class="mb-3">
+                            <input name="username" class="form-control" placeholder="Username" required />
+                        </div>
+                        <div class="mb-3">
+                            <input name="newPassword" type="password" class="form-control" placeholder="New Password"
+                                required />
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                    </form>
+
+                    <!-- Links -->
+                    <div class="d-flex justify-content-between mt-3">
+                        <a href="/Account/Login" class="small">Login</a>
+                    </div>
+
+
+                    @if (ViewBag.Error != null)
+                    {
+
+                        <div class="alert alert-danger mt-3" role="alert">
+                            @ViewBag.Error
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
